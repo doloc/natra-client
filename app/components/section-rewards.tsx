@@ -1,6 +1,7 @@
 'use client'
 import { Fragment, useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const SectionRewards = () => {
     // State để quản lý số milestone đã đạt được (0-5)
@@ -16,41 +17,94 @@ const SectionRewards = () => {
     ]
     
     return (
-      <div className="relative overflow-hidden w-full flex flex-col items-center bg-contain bg-center bg-no-repeat 
-      aspect-768/1380 bg-[url('/images/bg-mb-rewards.jpg')] md:aspect-192/95 md:bg-[url('/images/bg-rewards.jpg')]">
-        <div className="w-[78.65%] md:w-[31.45%] pt-[5%] md:pt-[2%] flex justify-center items-center bg-contain bg-center bg-no-repeat 
-        aspect-604/122 bg-[url('/images/bg-title.png')]">
+      <div
+        className="relative overflow-hidden w-full flex flex-col items-center bg-contain bg-center bg-no-repeat 
+        aspect-768/1380 bg-[url('/images/bg-mb-rewards.jpg')] md:aspect-192/95 md:bg-[url('/images/bg-rewards.jpg')]"
+      >
+        <motion.div
+          className="w-[78.65%] md:w-[31.45%] pt-[5%] md:pt-[2%] flex justify-center items-center bg-contain bg-center bg-no-repeat 
+          aspect-604/122 bg-[url('/images/bg-title.png')]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <span className="text-2xl md:text-[2.4vw] text-[#FAF6D8] font-normal" style={{ fontFamily: 'FzHBRGame, sans-serif' }}>Đăng Ký Đạt Mốc Có Quà</span>
-        </div>
-        <img src="/images/btn-rules.png" alt="" className="absolute top-[14%] md:top-[8%] right-[40%] md:right-[26%] w-[26.95%] md:w-[10.78%] btn-image" onClick={() => setIsRulesOpen(true)} />
-        <span className="mt-[2%] md:mt-[0.5%] text-[#E22F03] text-xl md:text-[1.8vw] font-bold" style={{ 
+        </motion.div>
+        <motion.img
+          src="/images/btn-rules.png"
+          alt=""
+          className="absolute top-[14%] md:top-[8%] right-[40%] md:right-[26%] w-[26.95%] md:w-[10.78%] btn-image"
+          onClick={() => setIsRulesOpen(true)}
+          initial={{ opacity: 0, scale: 0.9, y: -10 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          whileTap={{ scale: 0.95 }}
+        />
+        <motion.span
+          className="mt-[2%] md:mt-[0.5%] text-[#E22F03] text-xl md:text-[1.8vw] font-bold"
+          style={{ 
                 fontFamily: 'SVN-Avo, sans-serif',
                 WebkitTextStroke: '2px #FDF88B',
                 WebkitTextFillColor: '#E22F03',
                 paintOrder: 'stroke fill'
-              }}>Đã có _____ Đạo Hữu đăng ký</span>
-        <img src="/images/char-reward.png" alt="" className="hidden md:block absolute bottom-[14%] w-[33.49%]" />
+              }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          Đã có _____ Đạo Hữu đăng ký
+        </motion.span>
+        <motion.img
+          src="/images/char-reward.png"
+          alt=""
+          className="hidden md:block absolute bottom-[14%] w-[33.49%]"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+        />
         
         {/* PC - Progress Bar Section */}
-        <div className="hidden md:flex relative mt-[19%] w-[60.16%] px-[1%] justify-between items-end mb-2">
+        <motion.div
+          className="hidden md:flex relative mt-[19%] w-[60.16%] px-[1%] justify-between items-end mb-2"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           {[1, 2, 3, 4, 5].map((index) => (
             <div key={index} className="flex flex-col items-center" style={{ width: '20%' }}>
               <img src={`/images/milestone-reward-${index}.png`} alt="" className="w-[35%]" />
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Mobile - Progress Bar Section */}
-        <div className="md:hidden absolute top-[32%] left-[10%] w-full flex flex-col justify-between space-y-[13%]">
+        <motion.div
+          className="md:hidden absolute top-[32%] left-[10%] w-full flex flex-col justify-between space-y-[13%]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           {[1, 2, 3, 4, 5].map((index) => (
             <div key={index} className="flex flex-col items-center w-[11.07%]">
               <img src={`/images/milestone-reward-${index}.png`} alt="" />
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* PC - Progress Bar Container */}
-        <div  className="hidden md:flex relative w-[60.16%] justify-center items-center bg-contain bg-center bg-no-repeat aspect-1155/34 bg-[url('/images/bg-progress-bar.png')]">
+        <motion.div
+          className="hidden md:flex relative w-[60.16%] justify-center items-center bg-contain bg-center bg-no-repeat aspect-1155/34 bg-[url('/images/bg-progress-bar.png')]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
           <div className="w-[92%] h-3/5 rounded-full bg-[#FFFAD9]">
             <div 
               className="z-10 h-3/5 rounded-full"
@@ -72,7 +126,7 @@ const SectionRewards = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Mobile - Progress Bar Container (Vertical) */}
         <div className="w-full">
@@ -109,7 +163,13 @@ const SectionRewards = () => {
         </div>
 
         {/* PC - Milestone Banners Row */}
-        <div className="hidden md:flex relative mt-[1%] w-[60.16%] flex-col items-center">
+        <motion.div
+          className="hidden md:flex relative mt-[1%] w-[60.16%] flex-col items-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
           <div className="relative w-full flex justify-between items-center mb-[1%] gap-[2%]">
             {milestones.map((milestone, index) => (
               <div 
@@ -211,10 +271,16 @@ const SectionRewards = () => {
             ))}
             <img src="/images/icon-milestone-reward-10.png" alt="" className="absolute top-[12%] -right-[8%] w-[10%]" />
           </div>
-        </div>
+        </motion.div>
 
         {/* Mobile - Milestone Banners Row */}
-        <div className="md:hidden absolute top-[28%] left-[30%] w-full flex flex-col justify-between space-y-[2.5%]">
+        <motion.div
+          className="md:hidden absolute top-[28%] left-[30%] w-full flex flex-col justify-between space-y-[2.5%]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           {milestones.map((milestone, index) => (
             <div key={index} className="relative w-full flex">
               <div className="flex justify-center items-center w-[23.96%] 
@@ -304,7 +370,7 @@ const SectionRewards = () => {
             </div>
           ))}
           <img src="/images/icon-milestone-reward-10.png" alt="" className="absolute bottom-[3%] left-[46%] w-[20%]" />
-        </div>
+        </motion.div>
 
         {isRulesOpen && (
           <div 

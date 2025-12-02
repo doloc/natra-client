@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Fragment } from "react/jsx-runtime";
+import { motion } from "framer-motion";
 
 const SectionInviteFriend = () => {
   const [isReceiveCode, setIsReceiveCode] = useState(false);
@@ -14,49 +15,122 @@ const SectionInviteFriend = () => {
     {reward: 6, amount: 1},
   ];
     return (
-      <div className="relative overflow-hidden w-full flex flex-col items-center bg-contain bg-center bg-no-repeat 
-      aspect-768/1380 bg-[url('/images/bg-mb-invite-friend.jpg')] md:aspect-192/95 md:bg-[url('/images/bg-invite-friend.jpg')]">
-        <div className="w-[78.65%] md:w-[31.45%] pt-[5%] md:pt-[2%] flex justify-center items-center bg-contain bg-center bg-no-repeat 
-        aspect-604/122 bg-[url('/images/bg-title.png')]">
+      <div
+        className="relative overflow-hidden w-full flex flex-col items-center bg-contain bg-center bg-no-repeat 
+        aspect-768/1380 bg-[url('/images/bg-mb-invite-friend.jpg')] md:aspect-192/95 md:bg-[url('/images/bg-invite-friend.jpg')]"
+      >
+        <motion.div
+          className="w-[78.65%] md:w-[31.45%] pt-[5%] md:pt-[2%] flex justify-center items-center bg-contain bg-center bg-no-repeat 
+          aspect-604/122 bg-[url('/images/bg-title.png')]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <span className="text-2xl md:text-[2.4vw] text-[#FAF6D8] font-normal" style={{ fontFamily: 'FzHBRGame, sans-serif' }}>Mời Bạn Đăng Ký Sớm</span>
-        </div>
+        </motion.div>
         {/* PC */}
-        <div className="hidden w-full md:flex justify-center gap-[1.5%]">
-          <img src="/images/char-invite-friend-1.png" alt="" className="w-[10.52%]" />
-          <img src="/images/char-invite-friend-2.png" alt="" className="w-[10.78%]" />
-          <img src="/images/char-invite-friend-3.png" alt="" className="w-[10.78%]" />
-          <img src="/images/char-invite-friend-4.png" alt="" className="w-[10.78%]" />
-          <img src="/images/char-invite-friend-5.png" alt="" className="w-[10.78%]" />
-        </div>
+        <motion.div
+          className="hidden w-full md:flex justify-center gap-[1.5%]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {[1, 2, 3, 4, 5].map((idx) => (
+            <motion.img
+              key={idx}
+              src={`/images/char-invite-friend-${idx}.png`}
+              alt=""
+              className="w-[10.78%]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              whileHover={{ scale: 1.03 }}
+            />
+          ))}
+        </motion.div>
 
         {/* Mobile */}
-        <div className="md:hidden flex w-full justify-center gap-[5%]">
+        <motion.div
+          className="md:hidden flex w-full justify-center gap-[5%]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <img src="/images/char-invite-friend-1.png" alt="" className="w-[26.30%]" />
           <img src="/images/char-invite-friend-2.png" alt="" className="w-[26.30%]" />
-        </div>
-        <div className="md:hidden flex w-full justify-center gap-[5%]">
+        </motion.div>
+        <motion.div
+          className="md:hidden flex w-full justify-center gap-[5%]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <img src="/images/char-invite-friend-3.png" alt="" className="w-[26.30%]" />
           <img src="/images/char-invite-friend-4.png" alt="" className="w-[26.30%]" />
           <img src="/images/char-invite-friend-5.png" alt="" className="w-[26.30%]" />
-        </div>
+        </motion.div>
 
-        <span className="mt-[1%] md:mt-[0.5%] text-[#E22F03] text-sm md:text-[1.2vw] font-semibold" style={{ 
+        <motion.span
+          className="mt-[1%] md:mt-[0.5%] text-[#E22F03] text-sm md:text-[1.2vw] font-semibold"
+          style={{ 
                 fontFamily: 'SVN-Avo, sans-serif',
                 WebkitTextStroke: '1px #FDF88B',
                 WebkitTextFillColor: '#E22F03',
                 paintOrder: 'stroke fill'
-              }}>Mời 5 bạn bè cùng tham gia nhận ngay quà có giá trị</span>
-        <span className="mt-[1%] md:mt-0 text-[#E22F03] text-sm md:text-[1.2vw] font-semibold" style={{ 
+              }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          Mời 5 bạn bè cùng tham gia nhận ngay quà có giá trị
+        </motion.span>
+        <motion.span
+          className="mt-[1%] md:mt-0 text-[#E22F03] text-sm md:text-[1.2vw] font-semibold"
+          style={{ 
                 fontFamily: 'SVN-Avo, sans-serif',
                 WebkitTextStroke: '1px #FDF88B',
                 WebkitTextFillColor: '#E22F03',
                 paintOrder: 'stroke fill'
-              }}>Đã Mời 0/5 Người Bạn</span>
-        <img src="/images/btn-invite-friend.png" alt="" className="mt-[1%] md:mt-0 w-[50.78%] md:w-[20.31%]" />
-        <div className="mt-[2%] w-[88.80%] md:w-[33.80%] pl-[1.5%] flex justify-between items-center bg-contain bg-center bg-no-repeat aspect-649/155 bg-[url('/images/frame-item-box.png')]">
+              }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          Đã Mời 0/5 Người Bạn
+        </motion.span>
+        <motion.img
+          src="/images/btn-invite-friend.png"
+          alt=""
+          className="mt-[1%] md:mt-0 w-[50.78%] md:w-[20.31%] btn-image"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          whileTap={{ scale: 0.95 }}
+        />
+        <motion.div
+          className="mt-[2%] w-[88.80%] md:w-[33.80%] pl-[1.5%] flex justify-between items-center bg-contain bg-center bg-no-repeat aspect-649/155 bg-[url('/images/frame-item-box.png')]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
           {items.map((item, index) => (
             <Fragment key={index}>
-              <div key={index} className="relative flex flex-col items-center">
+              <motion.div
+                className="relative flex flex-col items-center"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.6 + index * 0.05 }}
+              >
                 <img 
                   src={`/images/icon-milestone-reward-${item.reward}.png`} 
                   alt={`Reward ${item.reward}`}
@@ -70,11 +144,21 @@ const SectionInviteFriend = () => {
                 >
                   x{item.amount}
                 </span>
-              </div>
+              </motion.div>
             </Fragment>
           ))}
-          <img src="/images/btn-receive-code.png" alt="" className="w-[22.96%] btn-image" onClick={() => setIsReceiveCode(true)} />
-        </div>
+          <motion.img
+            src="/images/btn-receive-code.png"
+            alt=""
+            className="w-[22.96%] btn-image"
+            onClick={() => setIsReceiveCode(true)}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            whileTap={{ scale: 0.95 }}
+          />
+        </motion.div>
 
         {isReceiveCode && (
           <div 
